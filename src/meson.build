@@ -1,6 +1,6 @@
 install_headers('nix-builtin-utils.h')
 
-libnix_builtins = shared_library('nix-builtin-utils-2.0',
+libnix_bltius = shared_library('nix-builtin-utils-2.0',
   files(
     'list.c',
     'regex.cxx'
@@ -12,5 +12,5 @@ libnix_builtins = shared_library('nix-builtin-utils-2.0',
   install : true)
 
 if gtest_dep.found()
-  test('tests', executable('nbu-tests', 'tests.cxx', dependencies : gtest_dep))
+  test('tests', executable('nbu-tests', 'tests.cxx', dependencies : [gtest_dep], link_with : [libnix_bltius]))
 endif

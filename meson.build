@@ -10,7 +10,7 @@ subdir('src')
 
 pkg_mod = import('pkgconfig')
 pkg_mod.generate(
-  libraries  : [libnix_builtins],
+  libraries  : [libnix_bltius],
   version    : meson.project_version(),
   name       : 'libnix-builtin-utils-2.0',
   filebase   : 'nix-builtin-utils-2.0',

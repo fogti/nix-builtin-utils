@@ -50,7 +50,7 @@ static int nbu_handle_matches(NbuList * const ret, const std::cmatch match) {
     const size_t len = match.size() - 1;
     nbu_init_list(ret, len);
 
-    if (!ret->dat) {
+    if (len && !ret->dat) {
         return NBU_MATCH_ERR_NOMEM;
     }
 

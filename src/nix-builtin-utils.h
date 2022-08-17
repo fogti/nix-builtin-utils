@@ -23,7 +23,7 @@ extern "C" {
 /** slice stuff **/
 bool nbu_make_slice_owned(NbuStringSlice * self);
 void nbu_fini_slice_owned(NbuStringSlice * self);
-bool nbu_slices_eq(NbuStringSlice * a, NbuStringSlice * b);
+bool nbu_slices_eq(NbuStringSlice a, NbuStringSlice b);
 
 /** list stuff **/
 void nbu_init_list(NbuList *self, size_t len);
