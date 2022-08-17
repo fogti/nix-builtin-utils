@@ -24,11 +24,11 @@
     },
     "yz-flake-utils": {
       "locked": {
-        "lastModified": 1623915702,
-        "narHash": "sha256-BJA+aBQZJBeQ5t0TaoLSCL5ZG0AzH5lIgokGCb64nrk=",
+        "lastModified": 1660779307,
+        "narHash": "sha256-WiuDu1qAj7I1GY7FlNK5cMaCa94CKgdv0cumUXCavww=",
         "owner": "YZITE",
         "repo": "flake-utils",
-        "rev": "b26662a1f52046434d58daf133e814cf372fc9a4",
+        "rev": "8fecd51bdf7138bfb6b7ac3340d0f65e2680556f",
         "type": "github"
       },
       "original": {

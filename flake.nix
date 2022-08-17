@@ -8,6 +8,7 @@
     yz-flake-utils.lib.mkFlakeFromProg {
       prevpkgs = nixpkgs;
       progname = "crulz";
+      contentAddressedByDefault = false;
       drvBuilder = final: prev: prev.callPackage ./. { };
     };
 }
