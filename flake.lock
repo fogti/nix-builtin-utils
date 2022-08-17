@@ -1,0 +1,43 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1660646295,
+        "narHash": "sha256-V4G+egGRc3elXPTr7QLJ7r7yrYed0areIKDiIAlMLC8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "762b003329510ea855b4097a37511eb19c7077f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "yz-flake-utils": "yz-flake-utils"
+      }
+    },
+    "yz-flake-utils": {
+      "locked": {
+        "lastModified": 1623915702,
+        "narHash": "sha256-BJA+aBQZJBeQ5t0TaoLSCL5ZG0AzH5lIgokGCb64nrk=",
+        "owner": "YZITE",
+        "repo": "flake-utils",
+        "rev": "b26662a1f52046434d58daf133e814cf372fc9a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YZITE",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
