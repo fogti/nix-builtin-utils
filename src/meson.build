@@ -10,3 +10,7 @@ libnix_builtins = shared_library('nix-builtin-utils-2.0',
   cpp_args : ['-fno-plt', '-fno-rtti', '-Werror=return-type'],
   include_directories : include_directories('.'),
   install : true)
+
+if gtest_dep.found()
+  test('tests', executable('nbu-tests', 'tests.cxx', dependencies : gtest_dep))
+endif

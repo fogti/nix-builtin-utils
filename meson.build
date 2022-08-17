@@ -4,6 +4,8 @@ project('Nix standalone builtin utils', 'c', 'cpp',
   license: 'LGPL-2.1',
   meson_version: '>=0.50')
 
+gtest_dep = dependency('gtest', main : true, required : false)
+
 subdir('src')
 
 pkg_mod = import('pkgconfig')

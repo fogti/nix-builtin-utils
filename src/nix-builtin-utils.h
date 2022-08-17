@@ -23,6 +23,7 @@ extern "C" {
 /** slice stuff **/
 bool nbu_make_slice_owned(NbuStringSlice * self);
 void nbu_fini_slice_owned(NbuStringSlice * self);
+bool nbu_slices_eq(NbuStringSlice * a, NbuStringSlice * b);
 
 /** list stuff **/
 void nbu_init_list(NbuList *self, size_t len);
@@ -38,27 +39,7 @@ void nbu_destroy_regex_cache(struct NbuRegexCache *);
 #define NBU_MATCH_ERR_NOMEM   -12
 #define NBU_MATCH_ERR_INVALID -22
 int nbu_match(struct NbuRegexCache * cache, NbuList * ret, NbuStringSlice rgx, NbuStringSlice s);
-/** example usage:
-    NbuRegexCache * cache = nbu_create_regex_cache();
-    // check if `cache` is non-null
-    NbuList matches;
-    // bring the matches list into a defined state
-    nbu_init_list(&matches, 0);
-
-    switch(nbu_match(cache, &matches, nbu_construct_slice("[abc]"), nbu_construct_slice("b"))) {
-        case NBU_MATCH_OK:
-            // match ok
-            break;
-        case NBU_MATCH_NOMATCH:
-            // match failed
-            break;
-        default:
-            // some error occured (memory or parsing)
-    }
-
-    nbu_fini_list(&matches, 1);
-    nbu_destroy_regex_cache(cache);
- **/
+/** for example usage, take a look at tests.cxx in the sources **/
 
 /** builds a list composed of non matched strings interleaved with the lists of the POSIX ERE's **/
 int nbu_split(struct NbuRegexCache * cache, NbuList * ret, NbuStringSlice rgx, NbuStringSlice s);

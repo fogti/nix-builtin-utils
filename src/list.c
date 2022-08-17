@@ -21,6 +21,14 @@ void nbu_fini_slice_owned(NbuStringSlice * self)
     nbu_fini_list((NbuList *) self, 0);
 }
 
+bool nbu_slices_eq(NbuStringSlice * a, NbuStringSlice * b)
+{
+    if (a->len != b->len)
+        return false;
+
+    return (memcmp(a->dat, b->dat, a->len) == 0) ? true : false;
+}
+
 void nbu_init_list(NbuList * self, size_t len)
 {
     self->len = len;
