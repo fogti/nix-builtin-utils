@@ -1,7 +1,7 @@
 {
   description = "Nix standalone builtin utils";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     yz-flake-utils.url = "github:YZITE/flake-utils";
   };
   outputs = { nixpkgs, yz-flake-utils, ... }:
