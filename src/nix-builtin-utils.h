@@ -43,7 +43,7 @@ void nbu_destroy_regex_cache(struct NbuRegexCache *);
 #define NBU_MATCH_NOMATCH       1
 #define NBU_MATCH_ERR_NOMEM   -12
 #define NBU_MATCH_ERR_INVALID -22
-int nbu_match(NbuRegexCache * cache, NbuList * ret, NbuStringSlice rgx, NbuStringSlice s);
+int nbu_match(struct NbuRegexCache * cache, NbuList * ret, NbuStringSlice rgx, NbuStringSlice s);
 /** example usage:
     NbuRegexCache * cache = nbu_create_regex_cache();
     // check if `cache` is non-null
@@ -67,7 +67,7 @@ int nbu_match(NbuRegexCache * cache, NbuList * ret, NbuStringSlice rgx, NbuStrin
  **/
 
 // builds a list composed of non matched strings interleaved with the lists of the POSIX ERE's
-//int nbu_split(NbuRegexCache * cache, NbuList2 * ret, NbuStringSlice rgx, NbuStringSlice s);
+//int nbu_split(struct NbuRegexCache * cache, NbuList2 * ret, NbuStringSlice rgx, NbuStringSlice s);
 
 #ifdef __cplusplus
 }

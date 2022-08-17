@@ -15,9 +15,9 @@ struct NbuRegexCache {
 
     std::regex get(std::string_view re)
     {
-        const std::lock_guard<std::mutex> lock(rgx_mutex);
-        auto it = rgx_cache.find(re);
-        if (it != rgx_cache.end())
+        const std::lock_guard<std::mutex> lock(mutex);
+        auto it = cache.find(re);
+        if (it != cache.end())
             return it->second;
         keys.emplace_back(re);
         return cache.emplace(keys.back(), std::regex(keys.back(), std::regex::extended)).first->second;

@@ -1,4 +1,4 @@
-project('Nix standalone builtin utils', 'c',
+project('Nix standalone builtin utils', 'c', 'cpp',
   default_options: ['cpp_std=c++17'],
   version: '0.2.0',
   license: 'LGPL-2.1',
