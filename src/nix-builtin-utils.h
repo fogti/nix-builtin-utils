@@ -1,4 +1,5 @@
 #pragma once
+#include <stdbool.h>
 #include <stddef.h>
 
 /** Nix string slice, equivalent to rust's &[u8] **/
@@ -13,32 +14,25 @@ typedef struct {
     size_t len;
 } NbuList;
 
-/*
-typedef struct {
-    NbuList * dat;
-    size_t len;
-} NbuList2;
-*/
-
 struct NbuRegexCache;
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/** C API for list stuff **/
-void nbu_init_list(NbuList *self, size_t len);
-void nbu_fini_list(NbuList *self);
-/*
-void nbu_init_list2(NbuList2 *self, size_t len);
-void nbu_fini_list2(NbuList2 *self);
-*/
+/** slice stuff **/
+bool nbu_make_slice_owned(NbuStringSlice * self);
+void nbu_fini_slice_owned(NbuStringSlice * self);
 
-/** C API for regex cache **/
+/** list stuff **/
+void nbu_init_list(NbuList *self, size_t len);
+void nbu_fini_list(NbuList *self, size_t recurse);
+
+/** regex cache **/
 struct NbuRegexCache * nbu_create_regex_cache(void);
 void nbu_destroy_regex_cache(struct NbuRegexCache *);
 
-/** C API for regex stuff **/
+/** regex builtins **/
 #define NBU_MATCH_OK            0
 #define NBU_MATCH_NOMATCH       1
 #define NBU_MATCH_ERR_NOMEM   -12
@@ -62,12 +56,14 @@ int nbu_match(struct NbuRegexCache * cache, NbuList * ret, NbuStringSlice rgx, N
             // some error occured (memory or parsing)
     }
 
-    nbu_fini_list(&matches);
+    nbu_fini_list(&matches, 1);
     nbu_destroy_regex_cache(cache);
  **/
 
-// builds a list composed of non matched strings interleaved with the lists of the POSIX ERE's
-//int nbu_split(struct NbuRegexCache * cache, NbuList2 * ret, NbuStringSlice rgx, NbuStringSlice s);
+/** builds a list composed of non matched strings interleaved with the lists of the POSIX ERE's **/
+int nbu_split(struct NbuRegexCache * cache, NbuList * ret, NbuStringSlice rgx, NbuStringSlice s);
+/** frees the partial nested list returned by nbu_split **/
+void nbu_split_fini_ret(NbuList * ret);
 
 #ifdef __cplusplus
 }

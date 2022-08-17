@@ -6,7 +6,7 @@ libnix_builtins = shared_library('nix-builtin-utils-2.0',
     'regex.cxx'
   ),
   version : '0.2.0',
-  c_args : ['-fno-plt'],
-  cpp_args : ['-fno-plt', '-fno-rtti'],
+  c_args : ['-fno-plt', '-Werror=return-type'],
+  cpp_args : ['-fno-plt', '-fno-rtti', '-Werror=return-type'],
   include_directories : include_directories('.'),
   install : true)
