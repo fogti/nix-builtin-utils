@@ -7,7 +7,7 @@
   outputs = { nixpkgs, yz-flake-utils, ... }:
     yz-flake-utils.lib.mkFlakeFromProg {
       prevpkgs = nixpkgs;
-      progname = "crulz";
+      progname = "nix-builtin-utils";
       contentAddressedByDefault = false;
       drvBuilder = final: prev: prev.callPackage ./. { };
     };
