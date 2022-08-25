@@ -16,7 +16,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     description = "Nix standalone builtin utils";
-    #homepage = "https://github.com/zseri/libowlevelzs";
+    homepage = "https://github.com/zseri/nix-builtin-utils";
     license = licenses.lgpl2Plus;
     platforms = platforms.all;
   };
