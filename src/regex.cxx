@@ -1,3 +1,4 @@
+#include "nix-builtin-utils-2.h"
 #include <list>
 #include <mutex>
 #include <new>
@@ -5,7 +6,6 @@
 #include <string>
 #include <string_view>
 #include <unordered_map>
-#include "nix-builtin-utils.h"
 
 struct NbuRegexCache {
     // TODO(nix) use C++20 transparent comparison when available

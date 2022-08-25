@@ -9,7 +9,13 @@
 stdenv.mkDerivation {
   pname = "nix-builtin-utils";
   version = "0.2.0";
-  src = ./.;
+  src = builtins.path {
+    path = ./.;
+    name = "nix-builtin-utils";
+    filter = name: type:
+      let baseName = builtins.baseNameOf (builtins.toString name);
+      in ! (lib.hasSuffix ".nix" baseName || lib.hasSuffix ".rs" baseName);
+  };
   nativeBuildInputs = [meson ninja pkg-config];
   checkInputs = [gtest];
   doCheck = true;

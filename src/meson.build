@@ -1,4 +1,4 @@
-install_headers('nix-builtin-utils.h')
+install_headers('nix-builtin-utils-2.h')
 
 libnix_bltius = shared_library('nix-builtin-utils-2.0',
   files(

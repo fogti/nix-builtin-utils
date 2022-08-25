@@ -62,7 +62,7 @@ mod ffi {
     #[repr(C)]
     pub struct NbuRegexCache([u8; 0]);
 
-    #[link(name = "nix-builtin-utils")]
+    #[link(name = "nix-builtin-utils-2.0")]
     extern "C" {
         // slice stuff
         //pub fn nbu_make_slice_owned(this: *mut NbuStringSlice) -> bool;
