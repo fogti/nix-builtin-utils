@@ -9,4 +9,4 @@ jobs:
     - uses: actions/checkout@v2.4.0
     - uses: cachix/install-nix-action@v15
     - run: "nix build -v -L .#nix-builtin-utils"
-    - run: "nix build -v -L .#nix-builtin-utils-rust"
+    - run: "nix build -v -L .#nix-builtin-utils-rust-with-tests"

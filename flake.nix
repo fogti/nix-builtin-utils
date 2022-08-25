@@ -28,15 +28,18 @@
                       then attrs.buildInputs
                       else []
                     )
-                    ++ [final.nix-builtin-utils];
+                    ++ [
+                      final.nix-builtin-utils
+                      final.pkg-config
+                    ];
                 };
               };
           })
           .rootCrate
-          .build
-          .override {
-            runTests = true;
-          };
+          .build;
+        nix-builtin-utils-rust-with-tests = final.nix-builtin-utils-rust.override {
+          runTests = true;
+        };
       };
     };
 }

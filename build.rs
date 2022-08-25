@@ -1,10 +1,12 @@
 fn main() {
-    if pkg_config::Config::new()
+    if let Err(e) = pkg_config::Config::new()
         .atleast_version("0.2")
-        .probe("nix-builtin-utils")
-        .is_err()
+        .probe("nix-builtin-utils-2.0")
     {
-        // fallback to building from source
+        println!(
+            "pkg-config invocation failed ({}), resort to building from source",
+            e
+        );
         cc::Build::new()
             .cpp(true)
             .file("src/list.c")
