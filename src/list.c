@@ -5,7 +5,7 @@
 bool nbu_make_slice_owned(NbuStringSlice * self)
 {
     if (self->dat) {
-        char * tmp = malloc(self->len + 1);
+        char * tmp = (char *) malloc(self->len + 1);
         if (!tmp) {
             return false;
         }
